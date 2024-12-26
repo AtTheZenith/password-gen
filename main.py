@@ -1,4 +1,4 @@
-from random import choice
+from random import choices
 from time import sleep
 
 modes = "abcd"
@@ -56,9 +56,7 @@ def main():
 
             char_no = char_no_in.isdigit() and int(char_no_in) or 12
 
-            password = ""
-            for _ in range(char_no):
-                password += choice(avch)
+            password = ''.join(choices(avch, k=char_no))
 
             print(f'The password is:\n{password}\n(Press Ctrl+C to exit.)')
             sleep(15)
