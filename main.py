@@ -33,35 +33,27 @@ def main():
         while True:
             system("cls" if name == "nt" else "clear")
             mode = ""
-            avch = ""
 
             in_text = input(select_mode_text)
 
             for char in in_text.lower():
                 if char in modes and char not in mode:
-                    mode += char
+                    mode.join(char)
 
             if mode == "":
                 mode = "abcd"
 
-            for char in mode:
-                if char == "a":
-                    avch += a
-                elif char == "b":
-                    avch += b
-                elif char == "c":
-                    avch += c
-                elif char == "d":
-                    avch += d
+            # chatgpt is sped
+            avch = "".join([a if char == 'a' else b if char == 'b' else c if char == 'c' else d for char in mode])
 
             char_no_in = input(select_char_num_text)
 
             char_no = int(char_no_in) if char_no_in.isdigit() else 12
 
-            password = ''.join(choices(avch, k=char_no))
+            password = "".join(choices(avch, k=char_no))
 
-            print(f'\nThe password is:\n{password}')
-            
+            print(f"\nThe password is:\n{password}")
+
             try:
                 with open("password.md", "w") as f:
                     f.write(password)
