@@ -1,5 +1,6 @@
 from random import choices
 from time import sleep
+from os import system, name
 
 modes = "abcd"
 a = "abcdefghijklmnopqrstuvwxyz"
@@ -22,7 +23,7 @@ Example:
 """
 
 select_char_num_text = """
-How many characters would you like to have?
+How long would you like your password to be?
 
 """
 
@@ -30,6 +31,7 @@ def main():
     """A loop function that runs the program repeatedly."""
     try:
         while True:
+            system("cls" if name == "nt" else "clear")
             mode = ""
             avch = ""
 
@@ -54,11 +56,21 @@ def main():
 
             char_no_in = input(select_char_num_text)
 
-            char_no = char_no_in.isdigit() and int(char_no_in) or 12
+            char_no = int(char_no_in) if char_no_in.isdigit() else 12
 
             password = ''.join(choices(avch, k=char_no))
 
-            print(f'The password is:\n{password}\n(Press Ctrl+C to exit.)')
+            print(f'\nThe password is:\n{password}')
+            
+            try:
+                with open("password.md", "w") as f:
+                    f.write(password)
+                    print("Successfully written password to file. (./password.md)")
+                    f.close()
+            except Exception:
+                print("Failed to Write to file.")
+
+            print("Press Ctrl+C to exit.")
             sleep(15)
     
     except KeyboardInterrupt:
