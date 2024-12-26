@@ -11,7 +11,7 @@ This generates 2,000,000 characters (using all the available characters.) in ~0.
 ## Usage
 Run the file with python using a terminal,
 
-You will be prompted to select what characters to use, use ab for only letters, c for numbers, d for symbols. (Combinable)
+You will be prompted to select what characters to use, use ab for only letters, c for numbers, d for symbols.
 <img src="https://i.e-z.host/--%3E/0i982bbe.png" alt="Initial Screenshot">
 
 Then you will be prompted to select an amount of characters, this will be the length of your password.
