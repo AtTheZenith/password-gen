@@ -40,7 +40,7 @@ def main():
                 if char in modes and char not in mode:
                     mode.join(char)
 
-            if mode == "":
+            if not mode:
                 mode = "abcd"
 
             # chatgpt is sped
