@@ -31,7 +31,7 @@ def main():
     """A loop function that runs the program repeatedly."""
     try:
         while True:
-            system("cls" if name == "nt" else "clear")
+            system("clear")
             mode = ""
 
             in_text = input(select_mode_text)
